@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, ScrollView, FlatList} from 'react-native';
+import {View, Text, TouchableOpacity, FlatList} from 'react-native';
 import {styles} from '../styles/GenreMenu.style';
 
 export default function GenreMenu(props) {
@@ -33,20 +33,30 @@ export default function GenreMenu(props) {
 
     return (
       <TouchableOpacity
-        style={styles.item}
-        onPress={() => setSelectedIndex(index)}>
-        <Text style={[styles.text, {color: selectedColor}]}>{item}</Text>
+        style={index == selectedIndex ? styles.selectedItem : styles.item}
+        onPress={() => {
+          setSelectedIndex(index);
+          props.genreHandler(genres[index]);
+        }}>
+        <Text
+          style={index == selectedIndex ? styles.selectedText : styles.text}>
+          {item}
+        </Text>
+        {/*   <View style={index == selectedIndex ? styles.selectedTextView : null} /> */}
       </TouchableOpacity>
     );
   };
+
   return (
-    <View>
+    <View style={styles.topContainer}>
       <FlatList
         data={genres}
         horizontal={true}
         renderItem={renderItem}
         keyExtractor={(item, index) => index.toString()}
-        contentContainerStyle={styles.topContainer}
+        //contentContainerStyle={styles.topContainer}
+        showsHorizontalScrollIndicator={false}
+        ListHeaderComponent={() => <View style={styles.listBottom}/>}
       />
     </View>
   );
