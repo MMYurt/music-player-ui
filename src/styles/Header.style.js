@@ -4,8 +4,9 @@ export const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginHorizontal: '5.4%',
-    marginBottom: '6.2%',
+    paddingHorizontal: '5.4%',
+    paddingBottom: '6.2%',
+    backgroundColor: '#f5f5f5'
   },
   title: {
     fontWeight: '600',
