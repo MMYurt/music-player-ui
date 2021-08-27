@@ -10,4 +10,8 @@ export const styles = StyleSheet.create({
   item: {
     paddingHorizontal: 15,
   },
+  text: {
+    fontSize: 18,
+    color: '#383838'
+  }
 });

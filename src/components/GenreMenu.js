@@ -1,38 +1,56 @@
-import React from 'react'
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native'
+import React, {useState} from 'react';
+import {View, Text, TouchableOpacity, ScrollView, FlatList} from 'react-native';
 import {styles} from '../styles/GenreMenu.style';
 
-export default function GenreMenu() {
+export default function GenreMenu(props) {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const genres = [
+    'All',
+    'Acoustic',
+    'Ambient',
+    'Blues',
+    'Children',
+    'Cinematic',
+    'Classical',
+    'Country',
+    'Electronic',
+    'Folk',
+    'Hip-hop',
+    'Holiday',
+    'Indie',
+    'Jazz',
+    'Latin',
+    'Lounge',
+    'Pop',
+    'Rock',
+    'Soul-rnb',
+    'World',
+  ];
+
+  const renderItem = ({item, index}) => {
+    if (index === selectedIndex) selectedColor = '#383838';
+    else selectedColor = '#a0a0a0';
+
+    return (
+      <TouchableOpacity
+        style={styles.item}
+        onPress={() => setSelectedIndex(index)}>
+        <Text style={[styles.text, {color: selectedColor}]}>{item}</Text>
+      </TouchableOpacity>
+    );
+  };
   return (
     <View>
-      <ScrollView horizontal={true} contentContainerStyle={styles.topContainer}>
-      <View style={styles.container}>
-        <TouchableOpacity style={styles.item}><Text>All</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.item}><Text>Acoustic</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.item}><Text>Ambient</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.item}><Text>Blues</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.item}><Text>Children</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.item}><Text>Cinematic</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.item}><Text>Classical</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.item}><Text>Country</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.item}><Text>Electronic</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.item}><Text>Folk</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.item}><Text>Hip-hop</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.item}><Text>Holiday</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.item}><Text>Indie</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.item}><Text>Jazz</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.item}><Text>Latin</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.item}><Text>Lounge</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.item}><Text>Pop</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.item}><Text>Rock</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.item}><Text>Soul-rnb</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.item}><Text>World</Text></TouchableOpacity>
-        </View>
-      </ScrollView>
+      <FlatList
+        data={genres}
+        horizontal={true}
+        renderItem={renderItem}
+        keyExtractor={(item, index) => index.toString()}
+        contentContainerStyle={styles.topContainer}
+      />
     </View>
-  )
+  );
 }
 
-//["acoustic", "ambient", "blues", "children", "cinematic", "classical", "country", "electronic", "folk", "hip-hop", "holiday", 
+//["acoustic", "ambient", "blues", "children", "cinematic", "classical", "country", "electronic", "folk", "hip-hop", "holiday",
 //"indie", "jazz", "latin", "lounge", "pop", "rock", "soul-rnb", "world"]
-
