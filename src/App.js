@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Fragment} from 'react';
 import {View, SafeAreaView, StatusBar, Text, Platform} from 'react-native';
 import Header from './components/Header';
 import GenreMenu from './components/GenreMenu';
@@ -22,19 +22,22 @@ export default function App() {
   }, []);
 
   return (
-    <SafeAreaView style={{backgroundColor: '#f5f5f5', flex: 1}}>
-      {Platform.OS == 'android' ? (
-        <StatusBar
-          backgroundColor={'#f5f5f5'}
-          barStyle={'dark-content'}
-        />
-      ) : <StatusBar hidden={true}/>}
-      {/* <StatusBar hidden={true}/> */}
-      <View style={{backgroundColor: 'white', flex: 1}}>
-        <Header />
-        <GenreMenu genreHandler={selectedGenreHandler} />
-        <MusicList selectedGenre={selectedGenre} data={data} />
-      </View>
-    </SafeAreaView>
+    <Fragment>
+      {/* For both Bottom and Top Bar on iOS */}
+      <SafeAreaView style={{backgroundColor: '#f5f5f5', flex: 0}} />
+      <SafeAreaView style={{backgroundColor: 'white', flex: 1}}>
+        {Platform.OS == 'android' ? (
+          <StatusBar backgroundColor={'#f5f5f5'} barStyle={'dark-content'} />
+        ) : (
+          <StatusBar hidden={true} />
+        )}
+        {/* <StatusBar hidden={true}/> */}
+        <View style={{backgroundColor: 'white', flex: 1}}>
+          <Header />
+          <GenreMenu genreHandler={selectedGenreHandler} />
+          <MusicList selectedGenre={selectedGenre} data={data} />
+        </View>
+      </SafeAreaView>
+    </Fragment>
   );
 }
