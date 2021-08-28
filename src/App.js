@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, SafeAreaView, StatusBar, Text} from 'react-native';
+import {View, SafeAreaView, StatusBar, Text, Platform} from 'react-native';
 import Header from './components/Header';
 import GenreMenu from './components/GenreMenu';
 import MusicList from './components/MusicList';
@@ -23,7 +23,13 @@ export default function App() {
 
   return (
     <SafeAreaView style={{backgroundColor: '#f5f5f5', flex: 1}}>
-      <StatusBar hidden={true} />
+      {Platform.OS == 'android' ? (
+        <StatusBar
+          backgroundColor={'#f5f5f5'}
+          barStyle={'dark-content'}
+        />
+      ) : <StatusBar hidden={true}/>}
+      {/* <StatusBar hidden={true}/> */}
       <View style={{backgroundColor: 'white', flex: 1}}>
         <Header />
         <GenreMenu genreHandler={selectedGenreHandler} />

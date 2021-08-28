@@ -32,12 +32,13 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 10,
   },
   text: {
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: '500',
     color: '#a0a0a0',
   },
   selectedText: {
-    fontSize: 18,
+    fontSize: 17,
+    fontWeight: '500',
     color: '#383838',
   },
 });

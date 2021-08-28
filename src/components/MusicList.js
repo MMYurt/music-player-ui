@@ -6,9 +6,11 @@ export default function MusicList(props) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    if (props.data && props.selectedGenre.toUpperCase() !== 'ALL') {    
+    if (props.data && props.selectedGenre.toLowerCase() !== 'all') {
       setData(
-        props.data.filter((data) => data.tags.includes(props.selectedGenre.toLowerCase())),
+        props.data.filter((data) =>
+          data.tags.includes(props.selectedGenre.toLowerCase()),
+        ),
       );
     } else if (props.data) {
       setData(props.data);
@@ -23,18 +25,15 @@ export default function MusicList(props) {
     );
   };
   return (
-    <View>
+    <View style={{flex: 1}}>
       {data ? (
-        <View>
-          {/* <Text>{JSON.stringify(props.data)}</Text> */}
-          <FlatList
-            data={data}
-            renderItem={renderItem}
-            keyExtractor={(item, index) => index.toString()}
-            
-            //showsHorizontalScrollIndicator={false}
-          />
-        </View>
+        <FlatList
+          data={data}
+          renderItem={renderItem}
+          keyExtractor={(item, index) => index.toString()}
+          //contentContainerStyle={{paddingBottom: 300}}  //Last items visibility issue
+          //showsHorizontalScrollIndicator={false}
+        />
       ) : (
         <View></View>
       )}
