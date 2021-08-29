@@ -1,5 +1,7 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 
+const {height, width} = Dimensions.get('window');
+console.log(width);
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -8,27 +10,35 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
   },
   imageContainer: {
-    borderWidth: 1,
-    borderColor: '#B2B2B2',
-    borderRadius: 10,
-    padding: 2,
+    borderWidth: 2,
+    borderColor: '#D2D2D2',
+    borderRadius: 15,
+    padding: width < 400 ?  width * 0.015 / 2 : 2,
     marginLeft: 12,
     marginRight: 12,
   },
   image: {
     flex: 1,
+    //padding: '7%',
+    padding: width < 400 ? width * 0.064 : 35,
     aspectRatio: 1,
-    borderRadius: 10,
+    borderRadius: 15,
   },
   contentContainer: {
     flex: 1,
   },
+  textContainer: {
+    paddingBottom: '1.5%',
+  },
   text: {
-    fontSize: 16,
+    color: '#424242',
+    fontSize: 14,
+    fontWeight: 'bold',
   },
   subText: {
-    fontSize: 13,
+    fontSize: 12,
     color: 'gray',
+    fontWeight: '500',
   },
   tagContainer: {
     flexDirection: 'row',
@@ -40,7 +50,13 @@ export const styles = StyleSheet.create({
   button: {
     backgroundColor: '#f5f5f5',
     borderRadius: 20,
-    padding: 11,
-    marginRight: 12,
+    paddingVertical: 11,
+    paddingHorizontal: width * 0.037,
+
+    marginRight: width * 0.037,
+  },
+  buttonText: {
+    fontWeight: '600',
+    color: '#626262',
   },
 });

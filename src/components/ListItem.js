@@ -13,7 +13,9 @@ export default function ListItem(props) {
     });
     return (
       <View style={styles.tagContainer}>
-        <Text style={styles.subText}>{temp.join(' ')}</Text>
+        <Text style={styles.subText} numberOfLines={1}>
+          {temp.join(' ')}
+        </Text>
       </View>
     );
   };
@@ -26,12 +28,30 @@ export default function ListItem(props) {
           style={styles.image}
           resizeMode="cover"
         />
+
+        <View
+          style={{
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Image source={require('../assets/play.png')}/>
+        </View>
       </View>
       <View style={styles.contentContainer}>
-        <Text numberOfLines={2} style={styles.text}>
-          {data.name}
-        </Text>
-        <Text style={styles.subText}>{data.artistName}</Text>
+        <View style={styles.textContainer}>
+          <Text numberOfLines={1} style={styles.text}>
+            {data.name}
+          </Text>
+        </View>
+
+        <View style={styles.textContainer}>
+          <Text style={styles.subText}>{data.artistName}</Text>
+        </View>
         {/* <View style={styles.tagContainer}>
           {data.tags.map((item, index) => (
             <Text key={index} style={styles.subText}>
@@ -41,9 +61,10 @@ export default function ListItem(props) {
         </View> */}
         {returnTags()}
       </View>
+
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button}>
-          <Text>Choose</Text>
+          <Text style={styles.buttonText}>Choose</Text>
         </TouchableOpacity>
       </View>
     </View>

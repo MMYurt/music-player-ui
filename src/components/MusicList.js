@@ -25,7 +25,7 @@ export default function MusicList(props) {
     );
   };
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 82}}>
       {data ? (
         <FlatList
           data={data}

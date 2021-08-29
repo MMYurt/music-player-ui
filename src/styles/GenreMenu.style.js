@@ -6,12 +6,13 @@ export const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 5,
+      height: 4,
     },
-    shadowOpacity: 0.34,
-    shadowRadius: 6.27,
+    shadowOpacity: 0.23,
+    shadowRadius: 4.65,
 
-    elevation: 10,
+    elevation: 8,
+    marginBottom: '1%',
   },
   container: {
     flexDirection: 'row',
@@ -24,7 +25,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 18,
 
-    borderBottomColor: 'black',
+    borderBottomColor: '#424242',
     borderBottomWidth: 2,
   },
   listBottom: {
@@ -32,13 +33,13 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 10,
   },
   text: {
-    fontSize: 17,
-    fontWeight: '500',
+    fontSize: 18,
+    fontWeight: '600',
     color: '#a0a0a0',
   },
   selectedText: {
-    fontSize: 17,
-    fontWeight: '500',
+    fontSize: 18,
+    fontWeight: '600',
     color: '#383838',
   },
 });
