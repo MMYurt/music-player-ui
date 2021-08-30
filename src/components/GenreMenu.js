@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, FlatList} from 'react-native';
 import {styles} from '../styles/GenreMenu.style';
+import {COLORS} from '../styles/colors';
 
 export default function GenreMenu(props) {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -28,8 +29,8 @@ export default function GenreMenu(props) {
   ];
 
   const renderItem = ({item, index}) => {
-    if (index === selectedIndex) selectedColor = '#383838';
-    else selectedColor = '#a0a0a0';
+    if (index === selectedIndex) selectedColor = COLORS.selectedMenuItem;
+    else selectedColor = COLORS.menuItem;
 
     return (
       <TouchableOpacity
@@ -42,7 +43,6 @@ export default function GenreMenu(props) {
           style={index == selectedIndex ? styles.selectedText : styles.text}>
           {item}
         </Text>
-        {/*   <View style={index == selectedIndex ? styles.selectedTextView : null} /> */}
       </TouchableOpacity>
     );
   };
@@ -54,13 +54,8 @@ export default function GenreMenu(props) {
         horizontal={true}
         renderItem={renderItem}
         keyExtractor={(item, index) => index.toString()}
-        //contentContainerStyle={styles.topContainer}
         showsHorizontalScrollIndicator={false}
-        ListHeaderComponent={() => <View style={styles.listBottom}/>}
       />
     </View>
   );
 }
-
-//["acoustic", "ambient", "blues", "children", "cinematic", "classical", "country", "electronic", "folk", "hip-hop", "holiday",
-//"indie", "jazz", "latin", "lounge", "pop", "rock", "soul-rnb", "world"]

@@ -3,6 +3,7 @@ import {View, SafeAreaView, StatusBar, Text, Platform} from 'react-native';
 import Header from './components/Header';
 import GenreMenu from './components/GenreMenu';
 import MusicList from './components/MusicList';
+import {styles} from './styles/App.style';
 
 export default function App() {
   const [selectedGenre, setSelectedGenre] = useState('All');
@@ -23,16 +24,16 @@ export default function App() {
 
   return (
     <Fragment>
-      {/* For both Bottom and Top Bar on iOS */}
-      <SafeAreaView style={{backgroundColor: '#f5f5f5', flex: 0}} />
-      <SafeAreaView style={{backgroundColor: 'white', flex: 1}}>
+      {/* For both Bottom Bar and Top Notch on iOS */}
+      <SafeAreaView style={styles.topNotch} />
+      <SafeAreaView style={styles.bottomBar}>
         {Platform.OS == 'android' ? (
-          <StatusBar backgroundColor={'#f5f5f5'} barStyle={'dark-content'} />
+          <StatusBar backgroundColor={'#f5f5f5'} barStyle={'dark-content'}/>
         ) : (
           <StatusBar hidden={true} />
         )}
         {/* <StatusBar hidden={true}/> */}
-        <View style={{backgroundColor: 'white', flex: 1}}>
+        <View style={styles.container}>
           <Header />
           <GenreMenu genreHandler={selectedGenreHandler} />
           <MusicList selectedGenre={selectedGenre} data={data} />

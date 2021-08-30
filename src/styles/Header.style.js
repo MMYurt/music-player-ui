@@ -1,21 +1,23 @@
-import {StyleSheet, Platform} from 'react-native';
-
-const os = Platform.OS;
+import {StyleSheet, Dimensions} from 'react-native';
+import { COLORS } from './colors';
+const {height} = Dimensions.get('screen');
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 6,
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: '5.4%',
     alignItems: 'center',
-    //paddingBottom: '6.2%',
-    backgroundColor: '#f5f5f5',
-    //paddingTop: os === 'android' ? '4%' : null,
+    paddingBottom: height < 1000 ? 7 : null,
+    backgroundColor: COLORS.background,
   },
   title: {
-    color: '#424242',
+    color: COLORS.primaryText,
     fontWeight: '700',
-    fontSize: 17,
+    fontSize: 18,
   },
+  button: {
+    fontSize: 15
+  }
 });

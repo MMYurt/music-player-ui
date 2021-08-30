@@ -1,8 +1,10 @@
 import {StyleSheet} from 'react-native';
 
+import { COLORS } from './colors';
+
 export const styles = StyleSheet.create({
   topContainer: {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: COLORS.background,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -25,21 +27,18 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 18,
 
-    borderBottomColor: '#424242',
+    borderBottomColor: COLORS.primaryText,
     borderBottomWidth: 2,
   },
-  listBottom: {
-    borderBottomColor: 'purple',
-    borderBottomWidth: 10,
-  },
+
   text: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#a0a0a0',
+    color: COLORS.menuItem,
   },
   selectedText: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#383838',
+    color: COLORS.selectedMenuItem,
   },
 });

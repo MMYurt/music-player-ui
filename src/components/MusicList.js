@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, FlatList} from 'react-native';
+import { styles } from '../styles/MusicList.style';
 import ListItem from './ListItem';
 
 export default function MusicList(props) {
@@ -25,14 +26,13 @@ export default function MusicList(props) {
     );
   };
   return (
-    <View style={{flex: 82}}>
+    <View style={styles.container}>
       {data ? (
         <FlatList
           data={data}
           renderItem={renderItem}
           keyExtractor={(item, index) => index.toString()}
-          //contentContainerStyle={{paddingBottom: 300}}  //Last items visibility issue
-          //showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{paddingBottom: 20}} //Last items visibility issue
         />
       ) : (
         <View></View>
