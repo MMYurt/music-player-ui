@@ -1,7 +1,7 @@
 
 # Project Overview
 
-Music player UI design has been developed using React Native
+Music player UI has been developed using React Native
 
 # Getting Started
 Instructions for running the project locally are given below. React Native must be properly installed to run project.
