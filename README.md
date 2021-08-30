@@ -15,7 +15,7 @@ Instructions for running the project locally are given below. React Native must 
 
 `cd music-player-ui && npm install`
 
-# Usage
+## Usage
 To run both on iOS and Android, you can use commands below.
 - iOS
 
