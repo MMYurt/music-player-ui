@@ -18,7 +18,7 @@ Instructions for running the project locally are given below. React Native must 
 ## Usage
 To run both on iOS and Android, you can use commands below.
 - iOS
-
+ 
 `cd ios && pod install`
 
 `react-native run-ios`
@@ -26,3 +26,8 @@ To run both on iOS and Android, you can use commands below.
 - Android
 
 `react-native run-android`
+
+# Screenshots
+
+<img src="https://i.imgur.com/7ICbK6P.png" width="20%"> 
+
